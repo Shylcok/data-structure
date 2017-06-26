@@ -82,8 +82,41 @@ int ListDelete(SLNode *head,int i,DataType *x)
     free(s);                                //释放指针s所指结点的内存空间
     return 1;
 }
-/*Ⅴ取数据元素*/
-/*Ⅵ撤销单链表*/
+/*Ⅴ取数据元素 ListGet(SLNode *head,int i,DataType *x)*/
+int ListGet(SLNode *head,int i,DataType *x)
+{
+    SLNode *p;
+    int j;
+    p = head;
+    j = -1;
+    while(p->next !=NULL&&j<i)
+    {
+        p = p->next; j++;
+    }
+
+    if(j!=i)
+    {
+        printf("取元素位置参数端！");
+        return 0;
+    }
+
+    *x = p->data;
+    return 1;
+}
+/*Ⅵ撤销单链表 Destroy(SLNode **head)*/
+void Destory(SLNode **head)
+{
+    SLNode *p,*p1;
+
+    p = head;
+    while(p!=NULL)
+    {
+        p1 = p;
+        p = p->next;
+        free(p1);
+    }
+    *head = NULL;
+}
 
 
 
