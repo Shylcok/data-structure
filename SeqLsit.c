@@ -77,7 +77,7 @@ int ListGet(SeqList *L,int i,DataType *x)
     else
     {
         *x = L.list[i];
-        return1
+        return 1;
     }
 }
 
